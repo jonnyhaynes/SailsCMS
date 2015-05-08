@@ -1,0 +1,6 @@
+{
+	"excludeFiles": ["node_modules/**", "assets/js/dependencies/**", "assets/js/libraries/**"],
+	"preset": "google",
+	"disallowSpacesInAnonymousFunctionExpression": null,
+	"disallowMultipleVarDecl": null
+}

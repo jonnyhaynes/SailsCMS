@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - 0.12.2
+
+notifications:
+  email: false
+
+before_script:
+  - npm install -g jscs
+  - npm install -g jsinspect
+  - npm install -g jshint
+  - gem install scss-lint
+
+script:
+  - jscs assets/js/main.js && jscs assets/js/modules/**.js
+  - jsinspect assets/js/main.js assets/js/modules/**.js
+  - jshint assets/js/**/*.js
+  - scss-lint assets/scss -c .scss-lint.yml

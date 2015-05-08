@@ -1,0 +1,21 @@
+<% if (req.session.flash) { %>
+
+  <% if (req.session.flash.success) { %>
+  <div data-alert class="message-box message-box--success">
+    <p class="message-text message-text--success"><%= req.flash('success') %></p>
+  </div>
+  <% } %>
+
+  <% if (req.session.flash.warning) { %>
+  <div data-alert class="message-box message-box--warning">
+    <p class="message-text message-text--warning"><%= req.flash('warning') %></p>
+  </div>
+  <% } %>
+
+  <% if (req.session.flash.error) { %>
+  <div data-alert class="message-box message-box--error">
+    <p class="message-text message-text--error"><%= req.flash('error') %></p>
+  </div>
+  <% } %>
+
+<% } %>

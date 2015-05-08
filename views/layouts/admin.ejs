@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html lang="en" class="no-js ie8 ie9" dir="ltr"><![endif]-->
+<!--[if IE 9]><html lang="en" class="no-js ie9" dir="ltr"><![endif]-->
+<!--[if !(IE 8) | !(IE 9)  ]><!--><html dir="ltr" lang="en" class="no-js"><!--<![endif]-->
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//fast.fonts.net">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//use.typekit.com">
+
+    <title>Admin : SailsCMS</title>
+    <meta name="description" content="">
+    <meta name="author" content="coloring Code">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
+    <link rel="stylesheet" href="/css/admin/main.css">
+    <link rel="stylesheet" href="/css/admin/print.css" media="print">
+    <!--[if (lt IE 9) & (!IEMobile)]>
+      <link rel="stylesheet" href="/css/admin/ie8.css">
+    <![endif]-->
+
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/images/touch-icon.png">
+    <meta name="application-name" content="Site Name">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="">
+    <meta name="msapplication-TileColor" content="#000">
+    <meta name="msapplication-TileImage" content="/images/ms-tile.png">
+
+    <script>var getContentByMetaTagName=function(e){for(var n=document.getElementsByTagName("meta"),t=0;t<n.length;t++)if(e==n[t].name||e==n[t].getAttribute("property"))return n[t].content;return!1},loadJS=function(e,n){var t=window.document.getElementsByTagName("script")[0],o=window.document.createElement("script");return o.src=e,o.async=!0,t.parentNode.insertBefore(o,t),n&&"function"==typeof n&&(o.onload=n),o};</script>
+
+  </head>
+  <body>
+
+    <a href="#content" class="skip-content">skip to main content</a>
+
+    <header id="header" role="banner">
+      <h1><a href="/admin">Admin</a></h1>
+      <p class="alpha"><a href="/">View website</a></p>
+      <p class="omega"><a href="/logout">Logout</a> (<%= req.user.name %>)</p>
+    </header>
+    <nav class="navigation navigation__primary">
+      <ul role="menu">
+        <li><a href="/admin" class="active">Dashboard</a></li>
+        <li><a href="/admin/pages">Pages</a></li>
+        <li><a href="/admin/users">Users</a></li>
+      </ul>
+    </nav>
+    <main id="content" role="main">
+      <%- body %>
+      <!--TEMPLATES-->
+      
+      <!--TEMPLATES END-->
+    </main>
+    <footer id="footer" role="contentinfo">
+      <p>Copyright &copy; 2015. Made in SoYo.</p>
+    </footer>
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/libraries/checkmq/checkMQ.js"></script>
+    <script src="/js/libraries/cookie-disclaimer/cookieDisclaimer.min.js"></script>
+    <script src="/js/libraries/fastclick/fastclick.js"></script>
+    <script src="/js/libraries/inline-svg/inlineSVG.js"></script>
+    <script src="/js/libraries/lazysizes/lazysizes.js"></script>
+    <script src="/js/libraries/media-match/media.match.min.js"></script>
+    <script src="/js/libraries/modernizr/modernizr.js"></script>
+    <script src="/js/libraries/picturefill/picturefill.min.js"></script>
+    <script src="/js/libraries/placeholders/placeholders.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/modules/powerhouse.js"></script>
+    <!--SCRIPTS END-->
+  </body>
+</html>
