@@ -1,8 +1,8 @@
 {
-  "name": "SassySails",
+  "name": "SailsCMS",
   "private": false,
-  "version": "0.3.2",
-  "description": "A brand new Sails.js app set up to run Sass as standard.",
+  "version": "0.1.0",
+  "description": "WIP",
   "keywords": [],
   "dependencies": {
     "ejs": "~0.8.8",
@@ -32,7 +32,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:jonnyhaynes/SassySails.git"
+    "url": "git@github.com:jonnyhaynes/SailsCMS.git"
   },
   "author": "jonnyhaynes",
   "license": "MIT"
