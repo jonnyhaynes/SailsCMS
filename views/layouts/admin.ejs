@@ -43,7 +43,7 @@
     <header id="header" role="banner">
       <h1><a href="/admin">Admin</a></h1>
       <p class="alpha"><a href="/">View website</a></p>
-      <p class="omega"><a href="/logout">Logout</a> (<%= req.user.name %>)</p>
+      <p class="omega"><a href="/logout">Logout</a><% if (req.user != undefined) { %> (<%= req.user.name %>)<% } %></p>
     </header>
     <nav class="navigation navigation__primary">
       <ul role="menu">

@@ -26,14 +26,16 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  '*': true,
+  // '*': true,
 
   'AdminController': {
      '*': 'isAuthenticated'
    },
 
    'UserController': {
-      '*': 'isAuthenticated'
+      '*': 'isAuthenticated',
+      new: true,
+      show: true
     }
 
   /***************************************************************************

@@ -38,6 +38,8 @@ input[type="number"],
 input[type="date"],
 input[type="url"],
 input[type="password"],
+input[type="radio"],
+input[type="checkbox"],
 textarea,
 select {
   width: 40%;
@@ -64,8 +66,16 @@ input[type="range"] {
 
 input[type="radio"],
 input[type="checkbox"] {
-  margin-right: 5px;
+  width: 35px;
+  padding: 0;
   display: inline-block;
+  &:checked {
+    background: $header;
+    width: 35px;
+    height: 35px;
+
+    border: 7.5px solid mix($extra-light-grey, $white, 50%);
+  }
 }
 
 input[type="submit"],

@@ -9,7 +9,9 @@ module.exports = {
 
 	// This loads the sign-up page --> user/new.ejs
   new: function(req, res) {
-    res.view('user/new');
+    res.view('user/new', {
+      admin: false
+    });
   },
 
 	create: function(req, res, next) {
@@ -18,7 +20,8 @@ module.exports = {
       name: req.param('name'),
       email: req.param('email'),
       password: req.param('password'),
-      confirmation: req.param('confirmation')
+      confirmation: req.param('confirmation'),
+      admin: req.param('admin')
     };
 
     User.create(userObj).exec(function(err, user) {
@@ -30,15 +33,15 @@ module.exports = {
 			}
 
       // Log user in
-      req.session.authenticated = true;
-      req.session.user = user;
+      req.login(user, function(err) {
+        if (err) { return next(err); }
+        req.flash('success', 'User ' + user.name + ' created and logged-in.');
+        return res.redirect('/user/show/' + user.id);
+      });
 
-      req.flash('success', 'User ' + user.name + ' created and logged-in.');
-      return res.redirect('/user/show/' + user.id);
     });
   },
 
-  // render the profile view (e.g. /views/show.ejs)
   show: function(req, res, next) {
     User.findOne(req.param('id'), function foundUser(err, user) {
       if (err) return next(err);
@@ -47,6 +50,31 @@ module.exports = {
         user: user
       });
     });
+  },
+
+  index: function(req, res) {
+    if (req.param('type') == 'admin') {
+      User.find().where({
+        admin: true
+      }).exec(function(err, users) {
+        if (err) { return res.serverError(err); }
+        return res.view('user/index', {
+          users: users,
+          admin: true
+        });
+      });
+    } else {
+      User.find().where({
+        admin: false
+      }).exec(function(err, users) {
+        if (err) { return res.serverError(err); }
+        return res.view('user/index', {
+          users: users,
+          admin: false
+        });
+      });
+    }
+
   }
 
 };

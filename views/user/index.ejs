@@ -1,12 +1,12 @@
-<h1>Users</h1>
+<h1><% if (admin) { %>Admin <% } %>Users</h1>
 <nav class="navigation navigation__secondary">
   <ul role="menu">
-    <li><a href="/admin/users/general" class="active">General</a></li>
-    <li><a href="/admin/users/admin">Admin</a></li>
+    <li><a href="/admin/user/index/general" class="<% if (!admin) { %>active<% } %>">General</a></li>
+    <li><a href="/admin/user/index/admin" class="<% if (admin) { %>active<% } %>">Admin</a></li>
   </ul>
 </nav>
 <div class="actions">
-  <a href="/admin/users/new" class="btn">Add new user</a>
+  <a href="/admin/user/new" class="btn">Add new user</a>
 </div>
 <table>
   <thead>
@@ -19,6 +19,7 @@
   </thead>
   <tbody>
     <% _.each(users, function(user) { %>
+
       <tr>
         <th><a href="/user/update/<%= user.id %>"><%= user.name %></a></th>
         <td><%= user.email %></td>
@@ -34,5 +35,5 @@
   </tbody>
 </table>
 <div class="actions">
-  <a href="/admin/users/new" class="btn">Add new user</a>
+  <a href="/admin/user/new" class="btn">Add new user</a>
 </div>

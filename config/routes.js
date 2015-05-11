@@ -28,12 +28,60 @@ module.exports.routes = {
 
   // Users
   '/user/new': {
-    view: 'user/new'
+    controller: 'UserController',
+    action: 'new',
+  },
+
+  '/user/show/:id': {
+    controller: 'UserController',
+    action: 'show',
   },
 
   // Admin
   '/admin': {
     controller: 'AdminController',
+    action: 'index',
+    locals: {
+      layout: 'layouts/admin'
+    }
+  },
+
+  '/admin/user/new': {
+    controller: 'AdminController',
+    action: 'new',
+    locals: {
+      layout: 'layouts/admin'
+    }
+  },
+
+  'post /admin/user/create': 'UserController.create',
+
+  '/admin/user/show/:id': {
+    controller: 'UserController',
+    action: 'show',
+    locals: {
+      layout: 'layouts/admin'
+    }
+  },
+
+  '/admin/user/index': {
+    controller: 'UserController',
+    action: 'index',
+    locals: {
+      layout: 'layouts/admin'
+    }
+  },
+
+  '/admin/user/index/:type': {
+    controller: 'UserController',
+    action: 'index',
+    locals: {
+      layout: 'layouts/admin'
+    }
+  },
+
+  '/admin/user/index/admin': {
+    controller: 'UserController',
     action: 'index',
     locals: {
       layout: 'layouts/admin'

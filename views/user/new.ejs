@@ -1,6 +1,6 @@
 <h1>Create an account</h1>
 
-<form method="POST" action="/user/create">
+<form method="POST" action="<% if (admin) { %>/admin<% } %>/user/create">
   <fieldset>
     <label for="name">Name</label>
     <input type="text" name="name" />
@@ -10,6 +10,12 @@
     <input type="password" name="password" />
     <label for="confirmation">Password confirmation</label>
     <input type="password" name="confirmation" />
+    <% if (admin) { %>
+      <label for="admin">Admin</label>
+      <input type="checkbox" name="admin" />
+    <% } else { %>
+      <input type="hidden" name="admin" />
+    <% } %>
   </fieldset>
   <fieldset>
     <button class="btn">Submit</button>

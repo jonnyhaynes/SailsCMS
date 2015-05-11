@@ -8,8 +8,12 @@
 module.exports = {
 
   index: function(req, res) {
-    return res.view('admin/pages/index', {
-      user: req.session.user
+    return res.view('admin/pages/index');
+  },
+
+  new: function(req, res) {
+    res.view('user/new', {
+      admin: true
     });
   }
 
