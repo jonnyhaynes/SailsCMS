@@ -8,7 +8,7 @@
 module.exports = {
 
 	// This loads the sign-up page --> user/new.ejs
-  'new': function(req, res) {
+  new: function(req, res) {
     res.view('user/new');
   },
 
@@ -21,41 +21,20 @@ module.exports = {
       confirmation: req.param('confirmation')
     };
 
-    // Create a User with the params sent from
-    // the sign-up form --> new.ejs
-    User.create(userObj, function userCreated(err, user) {
+    User.create(userObj).exec(function(err, user) {
 
       // // If there's an error
-      // if (err) return next(err);
-
       if (err) {
-        req.session.flash = {
-          error: err
-        };
-
-        // If error redirect back to sign-up page
-        return res.redirect('/user/new');
-      }
+				req.flash('error', err);
+				return res.redirect('user/new');
+			}
 
       // Log user in
       req.session.authenticated = true;
-      req.session.User = user;
+      req.session.user = user;
 
-      // Change status to online
-      user.online = true;
-      user.save(function(err, user) {
-        if (err) return next(err);
-
-	      // Let other subscribed sockets know that the user was created.
-	      User.publishCreate(user);
-
-        // After successfully creating the user
-        // redirect to the show action
-        // From ep1-6: //res.json(user);
-
-				req.flash('success', 'User ' + user.name + ' created and logged-in.');
-        res.redirect('/user/show/' + user.id);
-      });
+      req.flash('success', 'User ' + user.name + ' created and logged-in.');
+      return res.redirect('/user/show/' + user.id);
     });
   },
 

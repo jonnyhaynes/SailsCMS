@@ -1,0 +1,43 @@
+/*------------------------------------*\
+  $PAGE
+\*------------------------------------*/
+
+/**
+ * [1] Fonts on OSX will look more consistent with
+ *     other systems that do not render text using
+ *     sub-pixel anti-aliasing.
+ */
+
+html {
+  overflow-y: scroll;
+  min-height: 100%;
+  text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale; /* 1 */
+  -webkit-font-smoothing: antialiased; /* 1 */
+  color: $base-font-color;
+  background: {
+    color: $base-background-color;
+  }
+}
+
+body {
+  background: $white;
+  background: linear-gradient(to right, $extra-light-grey 0%, $extra-light-grey percentage(20/100), $white percentage(20/100), $white 100%);
+
+  font: {
+    size: font-size($base-font-size);
+    family: $body-font;
+    weight: 400;
+  }
+  color: #555;
+  line-height: 1.4;
+  min-width: 960px;
+}
+
+.wrap {
+  margin: 0 auto;
+  width: $wrapper-width;
+  @if ($mq-responsive == true) {
+    max-width: 95%;
+  }
+}

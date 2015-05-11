@@ -1,0 +1,89 @@
+/*------------------------------------*\
+  $TABLES
+\*------------------------------------*/
+
+$table-th-background-color: mix($light-grey, $extra-light-grey, 50%);
+$table-th-text-color: mix($light-grey, $base-font-color, 25%);
+$table-border-color: $light-grey;
+$table-striped: true;
+$table-stripe-background-color: mix($extra-light-grey, $white, 50%);
+$table-stripe-text-color: $base-font-color;
+
+table {
+  margin-bottom: $base-spacing-unit;
+  width: 80%;
+  border-collapse: collapse;
+
+  margin: {
+    bottom: 20px;
+  }
+
+  @if ($table-striped == true) {
+    tr:nth-child(even) {
+      background: $table-stripe-background-color;
+    }
+
+    color: $table-stripe-text-color;
+
+    tbody {
+      tr:nth-child(even) {
+        th {
+          background: $table-stripe-background-color;
+        }
+      }
+    }
+  }
+
+  font: {
+    size: font-size(14);
+  }
+
+  tr:last-child {
+    border: {
+      bottom: 1px solid mix($extra-light-grey, $white, 50%);
+    }
+  }
+}
+
+th,
+td {
+  padding: 10px 20px;
+  text-align: left;
+
+  width: 22.5%;
+
+  img {
+    background: $white;
+    max-width: 30px;
+    padding: 10px;
+    float: left;
+  }
+}
+
+th {
+  background: {
+    color: $table-th-background-color;
+  }
+  color: $table-th-text-color;
+
+  font: {
+    weight: 700;
+  }
+}
+
+td,
+tr {
+  border: none;
+}
+
+caption {
+  margin-bottom: 15px;
+}
+
+tbody {
+  th {
+    background: $white;
+    text-transform: uppercase;
+    width: 32.5%;
+  }
+}

@@ -25,14 +25,9 @@ module.exports = {
   		unique: true
   	},
 
-  	encryptedPassword: {
+  	password: {
   		type: 'string'
   	},
-
-    online: {
-      type: 'boolean',
-      defaultsTo: false
-    },
 
     admin: {
       type: 'boolean',
@@ -43,7 +38,7 @@ module.exports = {
       var obj = this.toObject();
       delete obj.password;
       delete obj.confirmation;
-      delete obj.encryptedPassword;
+      delete obj.password;
       delete obj._csrf;
       return obj;
     }
@@ -51,29 +46,29 @@ module.exports = {
   },
 
 
-  beforeValidation: function (values, next) {
-    if (typeof values.admin !== 'undefined') {
-      if (values.admin === 'unchecked') {
+  beforeValidation: function (user, next) {
+    if (typeof user.admin !== 'undefined') {
+      if (user.admin === 'unchecked') {
         values.admin = false;
-      } else  if (values.admin[1] === 'on') {
-        values.admin = true;
+      } else  if (user.admin[1] === 'on') {
+        user.admin = true;
       }
     }
      next();
   },
 
-  beforeCreate: function (values, next) {
+  beforeCreate: function (user, next) {
 
     // This checks to make sure the password and password confirmation match before creating record
-    if (!values.password || values.password != values.confirmation) {
+    if (!user.password || user.password != user.confirmation) {
       return next('Password doesn\'t match password confirmation.');
     }
 
     bcrypt.genSalt(10, function(err, salt) {
 
-      bcrypt.hash(values.password, salt, function passwordEncrypted(err, encryptedPassword) {
+      bcrypt.hash(user.password, salt, function(err, hash) {
         if (err) return next(err);
-        values.encryptedPassword = encryptedPassword;
+        user.password = hash;
         // values.online= true;
         next();
       });
@@ -81,5 +76,7 @@ module.exports = {
     });
 
   }
+
+
 
 };

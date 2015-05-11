@@ -1,0 +1,45 @@
+/*------------------------------------*\
+  $MESSAGES
+\*------------------------------------*/
+
+.message-box {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: none;
+
+  p {
+    margin-bottom: 0;
+    font: {
+      size: font-size(14);
+      weight: 700;
+    }
+  }
+
+  &--error {
+    background-color: mix($error-color, $white, 15%);
+  }
+
+  &--warning {
+    background-color: mix($warning-color, $white, 15%);
+  }
+
+  &--success {
+    background-color: mix($success-color, $white, 15%);
+  }
+}
+
+.message-text {
+  font-weight: bold;
+
+  &--error {
+    color: $error-color;
+  }
+
+  &--warning {
+    color: $warning-color;
+  }
+
+  &--success {
+    color: $success-color;
+  }
+}

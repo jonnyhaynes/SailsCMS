@@ -23,7 +23,7 @@ module.exports.bootstrap = function(cb) {
   };
 
   User.create(userObj, function userCreated(err, user) {
-    console.log('Created user with name: '+ user.name);
+    console.log('Created user with email: ' + userObj.email + ', and password: ' + userObj.password);
   });
 
   cb();

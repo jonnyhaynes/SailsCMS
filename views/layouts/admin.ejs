@@ -49,10 +49,11 @@
       <ul role="menu">
         <li><a href="/admin" class="active">Dashboard</a></li>
         <li><a href="/admin/pages">Pages</a></li>
-        <li><a href="/admin/users">Users</a></li>
+        <li><a href="/admin/user/index">Users</a></li>
       </ul>
     </nav>
     <main id="content" role="main">
+      <%- partial('../shared/flash') %>
       <%- body %>
       <!--TEMPLATES-->
       

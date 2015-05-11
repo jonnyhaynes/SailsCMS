@@ -29,6 +29,25 @@ module.exports.routes = {
   // Users
   '/user/new': {
     view: 'user/new'
-  }
+  },
+
+  // Admin
+  '/admin': {
+    controller: 'AdminController',
+    action: 'index',
+    locals: {
+      layout: 'layouts/admin'
+    }
+  },
+
+  // Login
+  'get /login': {
+    view: 'session/create'
+  },
+
+  'post /login': 'AuthController.login',
+
+  // Logout
+  '/logout': 'AuthController.logout',
 
 };

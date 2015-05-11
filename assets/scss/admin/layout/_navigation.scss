@@ -1,0 +1,75 @@
+.navigation {
+  &__primary {
+    width: percentage(20/100);
+    float: left;
+
+    li {
+      margin: 0;
+    }
+
+    a {
+      padding: 0 percentage(1.25/20);
+      color: mix($light-grey, $header, 25%);
+      display: block;
+      height: 35px;
+      line-height: 35px;
+      border-bottom: 1px solid $light-grey;
+
+      &:hover, &:focus {
+        background: mix($extra-light-grey, $light-grey, 75%);
+        color: $link-color;
+      }
+
+      &.active {
+        background: mix($light-grey, $extra-light-grey, 50%);
+        font: {
+          weight: 700;
+        }
+      }
+    }
+  }
+
+  &__secondary {
+    overflow: hidden;
+    margin: {
+      bottom: 35px;
+    }
+
+    li {
+      float: left;
+      display: inline;
+      margin: 0;
+
+      &:last-child {
+        a {
+          border: none;
+        }
+      }
+    }
+
+    a {
+      background: $extra-light-grey;
+      color: mix($light-grey, $header, 25%);
+
+      height: 35px;
+      line-height: 35px;
+
+      border-right: 1px solid $light-grey;
+
+      display: inline-block;
+      padding: 0 20px;
+
+      &:hover, &:focus {
+        background: mix($extra-light-grey, $light-grey, 75%);
+        color: $link-color;
+      }
+
+      &.active {
+        background: mix($light-grey, $extra-light-grey, 50%);
+        font: {
+          weight: 700;
+        }
+      }
+    }
+  }
+}

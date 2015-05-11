@@ -1,0 +1,38 @@
+<h1>Users</h1>
+<nav class="navigation navigation__secondary">
+  <ul role="menu">
+    <li><a href="/admin/users/general" class="active">General</a></li>
+    <li><a href="/admin/users/admin">Admin</a></li>
+  </ul>
+</nav>
+<div class="actions">
+  <a href="/admin/users/new" class="btn">Add new user</a>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Updated at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% _.each(users, function(user) { %>
+      <tr>
+        <th><a href="/user/update/<%= user.id %>"><%= user.name %></a></th>
+        <td><%= user.email %></td>
+        <td><%= user.updatedAt %></td>
+        <td>
+          <a href="/user/update/<%= user.id %>" class="btn btn--small btn--edit" role="link">Edit</a>
+          <% if (user.id !== req.user.id) { %>
+            <a href="/user/destroy/<%= user.id %>" class="btn btn--small btn--cancel" role="link">Delete</a>
+          <% } %>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+<div class="actions">
+  <a href="/admin/users/new" class="btn">Add new user</a>
+</div>

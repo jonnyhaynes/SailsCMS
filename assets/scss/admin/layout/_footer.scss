@@ -1,0 +1,12 @@
+#footer {
+  clear: both;
+  padding: {
+    left: percentage(22.5/100);
+  }
+
+  p {
+    border-top: 1px solid $light-grey;
+    padding: { top: 20px; }
+    width: 77.5%;
+  }
+}
