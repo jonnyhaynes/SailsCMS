@@ -1,31 +1,36 @@
-#header {
-  background: $header;
-  padding: 10px 0;
-  overflow: hidden;
+.brand {
+  background: $blue;
+  border-bottom: 5px solid mix($header, $black, 95%);
 
-  h1 {
-    width: percentage(17.5/100);
+  width: percentage(20/100);
 
-    float: left;
+  float: left;
 
-    padding: 0 percentage(1.25/100);
-    margin: 0;
+  padding: 10px percentage(1.25/100);
+  margin: 0;
 
-    font: {
-      size: font-size(28);
-      weight: 700;
-    }
-
-    text-transform: uppercase;
-
-    a {
-      color: $yellow;
-    }
+  font: {
+    size: font-size(28);
+    weight: 700;
   }
+
+  position: relative;
+  z-index: 10;
+
+  a {
+    color: $cream;
+  }
+}
+
+#header {
+  background: $cream;
+  border-bottom: 5px solid mix($cream, $black, 95%);
+  padding: 10px percentage(2.5/100);
+  overflow: hidden;
 
   p {
     line-height: 39px;
-    color: mix($header, $white, 25%);
+    color: mix($cream, $black, 50%);
 
     margin: 0;
 
@@ -36,8 +41,6 @@
     &.alpha {
       width: percentage(20/100);
       float: left;
-
-      padding: 0 percentage(2.5/100);
     }
 
     &.omega {
@@ -45,12 +48,10 @@
       float: right;
 
       text-align: right;
-
-      padding: 0 percentage(1.25/100);
     }
 
     a {
-      color: $white;
+      color: mix($cream, $black, 35%);
 
       font: {
         weight: 700;

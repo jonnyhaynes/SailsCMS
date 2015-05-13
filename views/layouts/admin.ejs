@@ -40,16 +40,17 @@
 
     <a href="#content" class="skip-content">skip to main content</a>
 
+    <h1 class="brand"><a href="/admin">Admin</a></h1>
     <header id="header" role="banner">
-      <h1><a href="/admin">Admin</a></h1>
       <p class="alpha"><a href="/">View website</a></p>
       <p class="omega"><a href="/logout">Logout</a><% if (req.user != undefined) { %> (<%= req.user.name %>)<% } %></p>
     </header>
     <nav class="navigation navigation__primary">
+      <p>Menu</p>
       <ul role="menu">
-        <li><a href="/admin" class="active">Dashboard</a></li>
-        <li><a href="/admin/pages">Pages</a></li>
-        <li><a href="/admin/user/index">Users</a></li>
+        <li><a href="/admin" class="<%= Helper.isCurrentPage(req, 'admin', 'index') ? 'active' : ''%>">Dashboard</a></li>
+        <li><a href="/admin/pages" class="<%= Helper.isCurrentPage(req, 'pages', 'index') ? 'active' : ''%>">Pages</a></li>
+        <li><a href="/admin/user/index" class="<%= Helper.isCurrentPage(req, 'user', 'index') ? 'active' : ''%>">Users</a></li>
       </ul>
     </nav>
     <main id="content" role="main">

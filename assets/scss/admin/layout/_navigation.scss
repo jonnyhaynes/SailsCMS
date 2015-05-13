@@ -1,29 +1,68 @@
 .navigation {
   &__primary {
+    background: mix($blue, $white, 95%);
+
     width: percentage(20/100);
     float: left;
 
+    height: 100%;
+
+    margin: {
+      top: -64px;
+    }
+
+    padding: {
+      top: 94px;
+    }
+
+    position: relative;
+    z-index: 0;
+
+    p {
+      margin: 0;
+      padding: 0 percentage(1.25/20) 8px;
+
+      text-transform: uppercase;
+      font: {
+        size: font-size(13);
+        weight: 700;
+      }
+
+      color: mix($cream, $blue, 90%);
+    }
+
     li {
       margin: 0;
+      padding: 0 percentage(1.25/20);
     }
 
     a {
-      padding: 0 percentage(1.25/20);
-      color: mix($light-grey, $header, 25%);
+      color: $cream;
       display: block;
       height: 35px;
       line-height: 35px;
-      border-bottom: 1px solid $light-grey;
+
+      font: {
+        weight: 700;
+      }
 
       &:hover, &:focus {
-        background: mix($extra-light-grey, $light-grey, 75%);
-        color: $link-color;
+        // background: mix($extra-light-grey, $light-grey, 75%);
+        // color: $link-color;
       }
 
       &.active {
-        background: mix($light-grey, $extra-light-grey, 50%);
-        font: {
-          weight: 700;
+        background: $yellow;
+        border-radius: 0 6px 6px 0;
+
+        color: $blue;
+
+        margin: {
+          left: -50px;
+        }
+
+        padding: {
+          left: 50px;
         }
       }
     }
@@ -40,35 +79,47 @@
       display: inline;
       margin: 0;
 
+      &:first-child {
+        a {
+          border: {
+            radius: 6px 0 0 6px;
+          }
+        }
+      }
+
       &:last-child {
         a {
-          border: none;
+          border: {
+            right: 0;
+            radius: 0 6px 6px 0;
+          }
         }
       }
     }
 
     a {
-      background: $extra-light-grey;
-      color: mix($light-grey, $header, 25%);
+      background: mix($cream, $white, 25%);
+      color: mix($cream, $black, 35%);
 
       height: 35px;
       line-height: 35px;
 
-      border-right: 1px solid $light-grey;
+      border-right: 5px solid mix($cream, $white, 75%);
 
       display: inline-block;
       padding: 0 20px;
 
+      font: {
+        weight: 700;
+      }
+
       &:hover, &:focus {
-        background: mix($extra-light-grey, $light-grey, 75%);
-        color: $link-color;
+        background: mix($cream, $white, 50%);
+        color: mix($cream, $black, 35%);
       }
 
       &.active {
-        background: mix($light-grey, $extra-light-grey, 50%);
-        font: {
-          weight: 700;
-        }
+        background: mix($cream, $white, 50%);
       }
     }
   }

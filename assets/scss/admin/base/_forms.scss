@@ -6,7 +6,7 @@ $input-padding: 10px;
 $input-border-color: $black;
 
 form {
-  width: 80%;
+  width: 100%;
 }
 
 fieldset {
@@ -46,7 +46,7 @@ select {
   float: left;
   height: 35px;
   line-height: 35px;
-  background: mix($extra-light-grey, $white, 50%);
+  background: mix($cream, $white, 50%);
   border: none;
   padding: 0 10px;
   font-size: font-size(13);
@@ -70,11 +70,11 @@ input[type="checkbox"] {
   padding: 0;
   display: inline-block;
   &:checked {
-    background: $header;
+    background: $blue;
     width: 35px;
     height: 35px;
 
-    border: 7.5px solid mix($extra-light-grey, $white, 50%);
+    border: 7.5px solid mix($cream, $white, 50%);
   }
 }
 

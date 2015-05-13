@@ -2,16 +2,16 @@
   $TABLES
 \*------------------------------------*/
 
-$table-th-background-color: mix($light-grey, $extra-light-grey, 50%);
-$table-th-text-color: mix($light-grey, $base-font-color, 25%);
-$table-border-color: $light-grey;
+$table-th-background-color: mix($cream, $white, 50%);
+$table-th-text-color: $base-font-color;
+$table-border-color: mix($cream, $white, 75%);
 $table-striped: true;
-$table-stripe-background-color: mix($extra-light-grey, $white, 50%);
+$table-stripe-background-color: mix($cream, $white, 25%);
 $table-stripe-text-color: $base-font-color;
 
 table {
   margin-bottom: $base-spacing-unit;
-  width: 80%;
+  width: 100%;
   border-collapse: collapse;
 
   margin: {
@@ -66,6 +66,8 @@ th {
   }
   color: $table-th-text-color;
 
+  border-bottom: 5px solid $table-border-color;
+
   font: {
     weight: 700;
   }
@@ -82,8 +84,11 @@ caption {
 
 tbody {
   th {
-    background: $white;
+    background: {
+      color: $base-background-color;
+    }
     text-transform: uppercase;
     width: 32.5%;
+    border: 0;
   }
 }

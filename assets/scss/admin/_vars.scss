@@ -16,11 +16,11 @@ $dark-grey: #212121;
 
 $extra-light-grey: #f2f2f2;
 
-$page: #f2e9bb;
-//$header: #0578a6;
-$header: #0578a6;
+$cream: #f2e9bb;
+$blue: #0578a6;
+$header: $blue;
 
-$yellow: #ecb416;
+$yellow: #ffbd00;
 
 $brand: #c00;
 
@@ -36,8 +36,8 @@ $error-color:   #ce1010;
 $warning-color: #ce7b11;
 $success-color: #3aa91d;
 
-$base-font-color: $dark-grey;
-$base-background-color: $white;
+$base-font-color: mix($cream, $black, 35%);
+$base-background-color: mix($cream, $white, 10%);
 
 // fonts
 $body-font: 'Open Sans', sans-serif;
@@ -48,9 +48,9 @@ $base-font-size: 16;
 $base-line-height: 24;
 
 // link options
-$link-color: #0578a6;
+$link-color: $blue;
 $link-underlined: false;
-$link-color-hover: #0578a6;
+$link-color-hover: $blue;
 $link-underlined-hover: false;
 
 // spacing

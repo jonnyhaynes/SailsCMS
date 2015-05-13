@@ -10,6 +10,7 @@
 
 html {
   overflow-y: scroll;
+  height : 100%;
   min-height: 100%;
   text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale; /* 1 */
@@ -21,15 +22,16 @@ html {
 }
 
 body {
-  background: $white;
-  background: linear-gradient(to right, $extra-light-grey 0%, $extra-light-grey percentage(20/100), $white percentage(20/100), $white 100%);
+  background: $base-background-color;
+
+  height: 100%;
 
   font: {
     size: font-size($base-font-size);
     family: $body-font;
     weight: 400;
   }
-  color: #555;
+  color: $base-font-color;
   line-height: 1.4;
   min-width: 960px;
 }

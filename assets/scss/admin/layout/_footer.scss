@@ -1,12 +1,24 @@
 #footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  min-width: 960px;
+
   clear: both;
   padding: {
+    right: percentage(2.5/100);
     left: percentage(22.5/100);
   }
 
   p {
-    border-top: 1px solid $light-grey;
+    border-top: 5px solid $cream;
     padding: { top: 20px; }
-    width: 77.5%;
+    width: 100%;
+
+    font: {
+      size: font-size(13);
+    }
   }
 }
