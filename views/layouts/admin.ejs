@@ -49,8 +49,8 @@
       <p>Menu</p>
       <ul role="menu">
         <li><a href="/admin" class="<%= Helper.isCurrentPage(req, 'admin', 'index') ? 'active' : ''%>">Dashboard</a></li>
-        <li><a href="/admin/pages" class="<%= Helper.isCurrentPage(req, 'pages', 'index') ? 'active' : ''%>">Pages</a></li>
-        <li><a href="/admin/user/index" class="<%= Helper.isCurrentPage(req, 'user', 'index') ? 'active' : ''%>">Users</a></li>
+        <li><a href="/admin/pages/index" class="<%= Helper.isCurrentPage(req, 'pages', 'index') ? 'active' : ''%>">Pages</a></li>
+        <li><a href="/admin/user/index" class="<%= Helper.isCurrentPage(req, 'user', 'index') ? 'active' : ''%><%= Helper.isCurrentPage(req, 'admin', 'new') ? 'active' : ''%>">Users</a></li>
       </ul>
     </nav>
     <main id="content" role="main">

@@ -36,6 +36,9 @@ module.exports = {
       req.login(user, function(err) {
         if (err) { return next(err); }
         req.flash('success', 'User ' + user.name + ' created and logged-in.');
+        if (req.user.admin) {
+          return res.redirect('/admin/user/show/' + user.id);
+        }
         return res.redirect('/user/show/' + user.id);
       });
 
@@ -75,6 +78,28 @@ module.exports = {
       });
     }
 
+  },
+
+  destroy: function(req, res, next) {
+
+    User.findOne(req.param('id'), function foundUser(err, user) {
+      if (err) return next(err);
+
+      if (!user) return next('User doesn\'t exist.');
+
+      User.destroy(req.param('id'), function userDestroyed(err) {
+        if (err) return next(err);
+
+        req.flash('error', user.name + ' deleted!');
+        return res.redirect('admin/user/index');
+
+      });
+
+    });
+  },
+
+  indexRedirect: function(req, res) {
+    return res.redirect('admin/user/index');
   }
 
 };

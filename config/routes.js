@@ -27,6 +27,11 @@ module.exports.routes = {
   },
 
   // Users
+  '/user': {
+    controller: 'UserController',
+    action: 'indexRedirect'
+  },
+
   '/user/new': {
     controller: 'UserController',
     action: 'new',
@@ -83,6 +88,14 @@ module.exports.routes = {
   '/admin/user/index/admin': {
     controller: 'UserController',
     action: 'index',
+    locals: {
+      layout: 'layouts/admin'
+    }
+  },
+
+  '/admin/user/destroy/:id': {
+    controller: 'UserController',
+    action: 'destroy',
     locals: {
       layout: 'layouts/admin'
     }

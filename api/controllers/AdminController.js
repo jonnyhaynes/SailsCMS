@@ -8,7 +8,18 @@
 module.exports = {
 
   index: function(req, res) {
-    return res.view('admin/pages/index');
+
+    User.count(function (err, num) {
+      if(err) {
+        return console.log(err);
+      }
+
+      res.view('admin/pages/index', {
+        userCount: num
+      });
+
+    });
+
   },
 
   new: function(req, res) {

@@ -29,13 +29,14 @@ module.exports.policies = {
   // '*': true,
 
   'AdminController': {
-     '*': 'isAuthenticated'
+     '*': ['isAuthenticated', 'isAdmin']
    },
 
    'UserController': {
-      '*': 'isAuthenticated',
+     '*': ['isAuthenticated', 'isAdmin'],
       new: true,
-      show: true
+      edit: 'canSeeProfile',
+      show: 'canSeeProfile'
     }
 
   /***************************************************************************

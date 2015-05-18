@@ -38,7 +38,6 @@ module.exports = {
       var obj = this.toObject();
       delete obj.password;
       delete obj.confirmation;
-      delete obj.password;
       delete obj._csrf;
       return obj;
     }
@@ -47,14 +46,17 @@ module.exports = {
 
 
   beforeValidation: function (user, next) {
+
     if (typeof user.admin !== 'undefined') {
-      if (user.admin === 'unchecked') {
-        values.admin = false;
-      } else  if (user.admin[1] === 'on') {
+      if (user.admin === false) {
+        user.admin = false;
+      } else if (user.admin === true) {
         user.admin = true;
       }
     }
-     next();
+
+    console.log(user.admin);
+    next();
   },
 
   beforeCreate: function (user, next) {

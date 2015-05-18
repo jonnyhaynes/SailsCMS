@@ -42,6 +42,15 @@
     <header id="header" role="banner">
       <div class="wrap">
         <span>SailsCMS</span>
+        <ul>
+          <% if (req.user != undefined) { %>
+            <li><a href="/user/show/<%= req.user.id %>">My Account</a></li>
+            <li><a href="/logout">Logout</a><% if (req.user != undefined) { %> (<%= req.user.name %>)<% } %></li>
+          <% } else { %>
+            <li><a href="/user/new">Create an Account</a></li>
+            <li><a href="/login">Login</a></li>
+          <% } %>
+      </ul>
       </div>
     </header>
     <main id="content" role="main">

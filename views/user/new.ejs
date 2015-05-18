@@ -11,10 +11,11 @@
     <label for="confirmation">Password confirmation</label>
     <input type="password" name="confirmation" />
     <% if (admin) { %>
+      <input type="hidden" name="admin" value="true" />
       <label for="admin">Admin</label>
-      <input type="checkbox" name="admin" />
+      <input type="checkbox" name="admin" checked />
     <% } else { %>
-      <input type="hidden" name="admin" />
+      <input type="hidden" name="admin" value="false" />
     <% } %>
   </fieldset>
   <fieldset>

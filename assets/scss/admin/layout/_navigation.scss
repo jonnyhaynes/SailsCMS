@@ -52,7 +52,7 @@
       }
 
       &.active {
-        background: $yellow;
+        background: mix($cream, $blue, 90%);
         border-radius: 0 6px 6px 0;
 
         color: $blue;

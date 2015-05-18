@@ -5,7 +5,7 @@
 $btn-padding: 0 20px;
 $btn-border-radius: 0;
 $btn-background-color: $header;
-$btn-hover-background-color: mix($header, $white, 75%);
+$btn-hover-background-color: mix($header, $black, 95%);
 $btn-text-color: $white;
 $btn-hover-text-color: $white;
 
@@ -28,6 +28,8 @@ $btn-hover-text-color: $white;
 
   height: 35px;
   line-height: 35px;
+
+  border-bottom: 5px solid mix($header, $black, 95%);
 
   font: {
     weight: 700;
@@ -59,6 +61,8 @@ $btn-hover-text-color: $white;
 
   padding: 0 5px;
 
+  border-width: 2px;
+
   font: {
     size: font-size(12);
   }
@@ -66,30 +70,33 @@ $btn-hover-text-color: $white;
 
 .btn--cancel {
   background: $error-color;
+  border-color: mix($error-color, $black, 95%);
 
   @include states {
     text-decoration: none;
     color: $btn-hover-text-color;
-    background-color: mix($error-color, $white, 75%);
+    background-color: mix($error-color, $black, 95%);
   }
 }
 
 .btn--new {
   background: $success-color;
+  border-color: mix($success-color, $black, 95%);
 
   @include states {
     text-decoration: none;
     color: $btn-hover-text-color;
-    background-color: mix($success-color, $white, 75%);
+    background-color: mix($success-color, $black, 95%);
   }
 }
 
 .btn--edit {
   background: $warning-color;
+  border-color: mix($warning-color, $black, 95%);
 
   @include states {
     text-decoration: none;
     color: $btn-hover-text-color;
-    background-color: mix($warning-color, $white, 75%);
+    background-color: mix($warning-color, $black, 95%);
   }
 }
