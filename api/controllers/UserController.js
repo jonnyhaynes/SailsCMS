@@ -32,13 +32,15 @@ module.exports = {
 				return res.redirect('user/new');
 			}
 
+      if (req.path === '/admin/user/create') {
+        req.flash('success', 'User ' + user.name + ' created.');
+        return res.redirect('/admin/user/index');
+      }
+
       // Log user in
       req.login(user, function(err) {
         if (err) { return next(err); }
         req.flash('success', 'User ' + user.name + ' created and logged-in.');
-        if (req.user.admin) {
-          return res.redirect('/admin/user/show/' + user.id);
-        }
         return res.redirect('/user/show/' + user.id);
       });
 

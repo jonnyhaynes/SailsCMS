@@ -10,8 +10,6 @@
  */
 
 module.exports.models = {
-
-  connection: 'mongodb',
+  connection: 'mongoDev',
   migrate: 'alter'
-
 };

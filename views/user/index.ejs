@@ -21,11 +21,11 @@
     <% _.each(users, function(user) { %>
 
       <tr>
-        <th><a href="/admin/user/show/<%= user.id %>"><%= user.name %></a></th>
+        <th><a href="/admin/user/edit/<%= user.id %>"><%= user.name %></a></th>
         <td><%= user.email %></td>
         <td><%= user.updatedAt %></td>
         <td>
-          <a href="/admin/user/show/<%= user.id %>" class="btn btn--small btn--edit" role="link">Edit</a>
+          <a href="/admin/user/edit/<%= user.id %>" class="btn btn--small btn--edit" role="link">Edit</a>
           <% if (user.id !== req.user.id) { %>
             <a href="/admin/user/destroy/<%= user.id %>" class="btn btn--small btn--cancel" role="link">Delete</a>
           <% } %>

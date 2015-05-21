@@ -47,16 +47,12 @@ module.exports = {
 
   beforeValidation: function (user, next) {
 
-    if (typeof user.admin !== 'undefined') {
-      if (user.admin === false) {
-        user.admin = false;
-      } else if (user.admin === true) {
-        user.admin = true;
-      }
+    if (user.admin !== true) {
+      user.admin = false;
     }
 
-    console.log(user.admin);
     next();
+
   },
 
   beforeCreate: function (user, next) {

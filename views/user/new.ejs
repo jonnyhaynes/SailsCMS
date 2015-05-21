@@ -11,9 +11,8 @@
     <label for="confirmation">Password confirmation</label>
     <input type="password" name="confirmation" />
     <% if (admin) { %>
-      <input type="hidden" name="admin" value="true" />
       <label for="admin">Admin</label>
-      <input type="checkbox" name="admin" checked />
+      <input type="checkbox" name="admin" id="admin" value="false" />
     <% } else { %>
       <input type="hidden" name="admin" value="false" />
     <% } %>
@@ -23,3 +22,16 @@
     <input type="hidden" name="_csrf" value="<%= _csrf %>" />
   </fieldset>
 </form>
+
+<script>
+  PowerHouse.ready(function() {
+
+    var theCheckbox = document.getElementById('admin'), theValue;
+    PowerHouse.addEventListener(theCheckbox, 'change', function(event) {
+      theValue = theCheckbox.value;
+      var adminValue = theValue === 'false' ? theCheckbox.value = true : theCheckbox.value = false;
+      return adminValue;
+    });
+
+  });
+</script>
