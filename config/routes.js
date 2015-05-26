@@ -42,6 +42,11 @@ module.exports.routes = {
     action: 'show',
   },
 
+  '/user/edit/:id': {
+    controller: 'UserController',
+    action: 'edit',
+  },
+
   // Admin
   '/admin': {
     controller: 'AdminController',
@@ -60,6 +65,16 @@ module.exports.routes = {
   },
 
   'post /admin/user/create': 'UserController.create',
+
+  '/admin/user/edit/:id': {
+    controller: 'UserController',
+    action: 'edit',
+    locals: {
+      layout: 'layouts/admin'
+    }
+  },
+
+  'post /admin/user/update': 'UserController.update',
 
   '/admin/user/show/:id': {
     controller: 'UserController',

@@ -47,6 +47,63 @@ module.exports = {
     });
   },
 
+  edit: function(req, res) {
+    User.findOne(req.param('id'), function foundUser(err, user) {
+      if (err) return next(err);
+      if (!user) return next();
+      if (req.path === '/admin/user/edit/' + user.id) {
+        res.view({
+          user: user,
+          admin: true
+        });
+      } else {
+        res.view({
+          user: user,
+          admin: false
+        });
+      }
+    });
+  },
+
+  update: function(req, res, next) {
+
+    var userObj = {
+      name: req.param('name'),
+      email: req.param('email'),
+      password: req.param('password'),
+      confirmation: req.param('confirmation'),
+      admin: req.param('admin')
+    };
+
+    User.find().where({
+      email: req.param('email')
+    }).exec(function(err, user) {
+
+      if (err) {
+        // do something with the error.
+      }
+
+      User.update(userObj).exec(function(err, user) {
+
+        // // If there's an error
+        if (err) {
+  				req.flash('error', err);
+  				return res.redirect('user/new');
+  			}
+
+        if (req.path === '/admin/user/update') {
+          req.flash('success', 'User ' + user.name + ' updated.');
+          return res.redirect('/admin/user/index');
+        }
+
+        req.flash('success', 'User ' + user.name + ' updated.');
+        return res.redirect('/user/show/' + user.id);
+
+      });
+
+    });
+  },
+
   show: function(req, res, next) {
     User.findOne(req.param('id'), function foundUser(err, user) {
       if (err) return next(err);
