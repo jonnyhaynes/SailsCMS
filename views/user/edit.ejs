@@ -1,6 +1,6 @@
 <h1>Edit <% if (admin) { %>an<% } else { %>your<% } %> account</h1>
 
-<form method="POST" action="<% if (admin) { %>/admin<% } %>/user/update">
+<form method="POST" action="<% if (admin) { %>/admin<% } %>/user/update/<%= user.id %>">
   <fieldset>
     <label for="name">Name</label>
     <input type="text" name="name" value="<%= user.name %>" />

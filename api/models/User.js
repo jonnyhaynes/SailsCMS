@@ -55,23 +55,35 @@ module.exports = {
 
   },
 
+  beforeUpdate: function (user, next) {
+    this.passwordValidation(user, next);
+  },
+
   beforeCreate: function (user, next) {
+    this.passwordValidation(user, next);
+  },
+
+  passwordValidation: function (user, next) {
+
+    console.log(user.password);
 
     // This checks to make sure the password and password confirmation match before creating record
-    if (!user.password || user.password != user.confirmation) {
+    if ((user.password !== '') && (user.password !== user.confirmation)) {
       return next('Password doesn\'t match password confirmation.');
     }
 
-    bcrypt.genSalt(10, function(err, salt) {
+    if (user.password !== '') {
+      bcrypt.genSalt(10, function(err, salt) {
 
-      bcrypt.hash(user.password, salt, function(err, hash) {
-        if (err) return next(err);
-        user.password = hash;
-        // values.online= true;
-        next();
+        bcrypt.hash(user.password, salt, function(err, hash) {
+          if (err) return next(err);
+          user.password = hash;
+          // values.online= true;
+          next();
+        });
+
       });
-
-    });
+    }
 
   }
 

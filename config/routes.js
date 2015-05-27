@@ -74,7 +74,7 @@ module.exports.routes = {
     }
   },
 
-  'post /admin/user/update': 'UserController.update',
+  'post /admin/user/update/:id': 'UserController.update',
 
   '/admin/user/show/:id': {
     controller: 'UserController',

@@ -28,8 +28,11 @@ module.exports = {
 
       // // If there's an error
       if (err) {
-				req.flash('error', err);
-				return res.redirect('user/new');
+        req.flash('error', err);
+        if (req.path === '/admin/user/create/') {
+          return res.redirect('/admin/user/new');
+        }
+        return res.redirect('/user/new');
 			}
 
       if (req.path === '/admin/user/create') {
@@ -67,38 +70,54 @@ module.exports = {
 
   update: function(req, res, next) {
 
-    var userObj = {
-      name: req.param('name'),
-      email: req.param('email'),
-      password: req.param('password'),
-      confirmation: req.param('confirmation'),
-      admin: req.param('admin')
-    };
-
-    User.find().where({
-      email: req.param('email')
-    }).exec(function(err, user) {
+    var user = User.findOne(req.param('id')).exec(function(err, user) {
 
       if (err) {
-        // do something with the error.
+        req.flash('error', err);
+        if (req.path === '/admin/user/update/' + req.param('id')) {
+          return res.redirect('/admin/user/edit/' + req.param('id'));
+        }
+        return res.redirect('/user/edit/' + req.param('id'));
       }
 
-      User.update(userObj).exec(function(err, user) {
+      if (req.body.name) {
+        user.name = req.body.name;
+      }
 
-        // // If there's an error
-        if (err) {
-  				req.flash('error', err);
-  				return res.redirect('user/new');
-  			}
+      if (req.body.email) {
+        user.email = req.body.email;
+      }
 
-        if (req.path === '/admin/user/update') {
+      if (req.body.password) {
+        console.log(user.password, req.body.password);
+        user.password = req.body.password;
+      }
+
+      if (req.body.confirmation) {
+        console.log(user.confirmation, req.body.confirmation);
+        user.confirmation = req.body.confirmation;
+      }
+
+      if (req.body.admin) {
+        user.admin = req.body.admin;
+      }
+
+      user.save(function(err) {
+        if(err) {
+          req.flash('error', err);
+          if (req.path === '/admin/user/update/' + req.param('id')) {
+            return res.redirect('/admin/user/edit/' + req.param('id'));
+          }
+          return res.redirect('/user/edit/' + req.param('id'));
+        } else {
+          if (req.path === '/admin/user/update') {
+            req.flash('success', 'User ' + user.name + ' updated.');
+            return res.redirect('/admin/user/index');
+          }
+
           req.flash('success', 'User ' + user.name + ' updated.');
-          return res.redirect('/admin/user/index');
+          return res.redirect('/user/show/' + req.param('id'));
         }
-
-        req.flash('success', 'User ' + user.name + ' updated.');
-        return res.redirect('/user/show/' + user.id);
-
       });
 
     });
